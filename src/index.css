@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+body {
+  font-family: 'Arimo', sans-serif;
+}
+
+@theme {
+  --color-PRIMARY-COLOR: #F9F9F9;
+  --color-JAUNE-COLOR: #FFCC00;
+  --color-BLACK-COLOR: #1A1C1C;
+  --color-GRAY-WHITE-COLOR: #F3F3F3;
+  --color-ICON-COLOR: #745B00;
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+}
