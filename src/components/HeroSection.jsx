@@ -10,7 +10,7 @@ import Feature from "../hooks/Feature";
 import { phone } from "../assets/images";
 function HeroSection() {
   return (
-<div className="mx-auto pb-10 grid max-w-7xl grid-cols-1 items-center gap-12 px-2 pt-32 md:grid-cols-[1fr_300px] lg:grid-cols-[1fr_500px] md:pt-5">
+<div id="hero" className="mx-auto pb-10 grid max-w-7xl grid-cols-1 items-center gap-12 px-2 pt-32 md:grid-cols-[1fr_300px] lg:grid-cols-[1fr_500px] md:pt-5">
         
         <div className="w-full">
           <h1 className="w-full text-5xl font-extrabold leading-[70px] tracking-tight text-BLACK-COLOR lg:text-[72px]">

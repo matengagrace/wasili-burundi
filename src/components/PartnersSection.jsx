@@ -1,26 +1,45 @@
 
 import { motion } from "framer-motion";
+import {clubLac,bhb,akeza,musumbaSteel,africaGame,bancobu,bcab,bcb,globalPeace,kira,finbank,unWomen,ingomag,kcb,brb,UN,eperticeFrance,socabu,crdb,brarudi,healthy,interbank,mirego,bgf,mediabox,jimbere,fruito,streetChild,wfp,zebra} from "../assets/partners/partners.js";
 
 const PARTNERS_ROW_1 = [
-  { name: "BCB", logo: "/images/partners/bcb-logo.webp" },
-  { name: "INGOMAG", logo: "/images/partners/ingomag.svg" },
-  { name: "ENAP", logo: "/images/partners/enap.svg" },
-  { name: "MEDIABOX", logo: "/images/partners/mediabox.svg" },
-  { name: "BRARUDI", logo: "/images/partners/brarudi.svg" },
-  { name: "WFP", logo: "/images/partners/wfp.svg" },
-  { name: "PLAN", logo: "/images/partners/plan.svg" },
-  { name: "BGF", logo: "/images/partners/bgf.svg" },
+  { name: "Club Lac", logo: clubLac },
+  { name: "bhb", logo: bhb },
+  { name: "akeza", logo: akeza },
+  { name: "musumbaSteel", logo: musumbaSteel },
+  { name: "africaGame", logo: africaGame },
+  { name: "bancobu", logo: bancobu },
+  { name: "bcab", logo: bcab },
+  { name: "bcb", logo: bcb },
 ];
 
 const PARTNERS_ROW_2 = [
-  { name: "FinBank", logo: "/images/partners/finbank.svg" },
-  { name: "InterBank", logo: "/images/partners/interbank.svg" },
-  { name: "CRDB", logo: "/images/partners/crdb.svg" },
-  { name: "RUBEYA", logo: "/images/partners/rubeya.svg" },
-  { name: "ZEBRA", logo: "/images/partners/zebra.svg" },
-  { name: "KCB", logo: "/images/partners/kcb.svg" },
-  { name: "ABANK", logo: "/images/partners/abank.svg" },
-  { name: "DTB", logo: "/images/partners/dtb.svg" },
+  { name: "globalPeace", logo: globalPeace },
+  { name: "kira", logo: kira },
+  { name: "finbank", logo: finbank },
+  { name: "unWomen", logo: unWomen },
+  { name: "ingomag", logo: ingomag },
+  { name: "kcb", logo: kcb },
+  { name: "brb", logo: brb },
+];
+const PARTNERS_ROW_3 = [
+  { name: "un", logo: UN },
+  { name: "eperticeFrance", logo: eperticeFrance },
+  { name: "socabu", logo: socabu },
+  { name: "crdb", logo: crdb },
+  { name: "brarudi", logo: brarudi },
+  { name: "healthy", logo: healthy },
+  { name: "interbank", logo: interbank },
+  { name: "mirego", logo: mirego },
+];
+const PARTNERS_ROW_4 = [
+  { name: "bgf", logo: bgf },
+  { name: "mediabox", logo: mediabox },
+  { name: "jimbere", logo: jimbere },
+  { name: "fruito", logo: fruito },
+  { name: "streetChild", logo: streetChild },
+  { name: "wfp", logo: wfp },
+  { name: "zebra", logo: zebra },
 ];
 
 function MarqueeRow({ partners, direction = "left", duration = 28 }) {
@@ -70,6 +89,8 @@ export default function PartnersSection() {
         <div className="flex flex-col divide-y divide-gray-200">
           <MarqueeRow partners={PARTNERS_ROW_1} direction="left" duration={30} />
           <MarqueeRow partners={PARTNERS_ROW_2} direction="right" duration={26} />
+          <MarqueeRow partners={PARTNERS_ROW_3} direction="left" duration={30} />
+          <MarqueeRow partners={PARTNERS_ROW_4} direction="right" duration={26} />
         </div>
       </div>
     </section>

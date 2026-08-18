@@ -19,4 +19,8 @@ import grandPublic from './grand_publique.jpg';
 import economie from './economie.png';
 import corporate from './corporate.png';
 
-export { logo, about, phone, downloadAppPoster, downloadAppVideo, commanderAppPoster, commanderAppVideo, team_dg, team_denis, team_reine, team_ulysse, team_auberthe, team_gianna, team_vanessa, team_no_photo, grandPublic, economie, corporate };
+import downloadGooglestore from './download_googlestore.png';
+import downloadAppstore from './download_appstore.png';
+import bgFooter from './bg.png';
+
+export { logo, about, phone, downloadAppPoster, downloadAppVideo, commanderAppPoster, commanderAppVideo, team_dg, team_denis, team_reine, team_ulysse, team_auberthe, team_gianna, team_vanessa, team_no_photo, grandPublic, economie, corporate,downloadGooglestore, downloadAppstore, bgFooter };

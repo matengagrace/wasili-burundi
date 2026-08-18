@@ -1,7 +1,7 @@
 import { about } from "../assets/images";
 function AboutSection() {
   return (
-    <section className="bg-PRIMARY-COLOR px-6 py-16  lg:py-24">
+    <section id="about" className="bg-PRIMARY-COLOR px-6 py-16  lg:py-24">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center justify-center gap-12 lg:grid-cols-2 lg:gap-16">
      
         <div className="overflow-hidden rounded-2xl shadow-sm w-full h-full">

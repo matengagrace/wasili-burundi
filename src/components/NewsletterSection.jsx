@@ -57,7 +57,7 @@ export default function NewsletterSection({ onSubscribe }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-8 text-gray-600"
+          className="mb-8 text-gray-600 text-lg"
         >
           Abonnez-vous à notre newsletter mensuelle pour rester informé sur
           tous nos services.
@@ -124,7 +124,7 @@ export default function NewsletterSection({ onSubscribe }) {
           </AnimatePresence>
         </div>
 
-        <p className="mt-2 text-xs text-gray-500">
+        <p className="mt-2 text-lg text-gray-500">
           Nous ne partagerons jamais vos informations avec des tiers.
           Consultez notre politique de confidentialité pour plus de détails.
         </p>

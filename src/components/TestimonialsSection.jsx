@@ -1,6 +1,5 @@
 
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
 
 const TESTIMONIALS = [
   {
@@ -59,16 +58,11 @@ export default function TestimonialsSection() {
               viewport={{ once: true, amount: 0.3 }}
               variants={cardVariants}
               whileHover={{ y: -4 }}
-              className="flex h-full flex-col justify-between rounded-xl bg-white p-6 shadow-sm ring-1 ring-black/5"
+              className="flex h-full flex-col justify-between rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/2"
             >
               <div>
-                <Quote
-                  className="mb-3 h-6 w-6 text-amber-500"
-                  fill="currentColor"
-                  strokeWidth={0}
-                />
                 <p className="text-sm leading-relaxed text-gray-700">
-                  {testimonial.quote}
+                  {testimonial.quote}````
                 </p>
               </div>
 

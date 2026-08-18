@@ -63,7 +63,7 @@ const SERVICES = [
 
 function ServiceSection() {
   return (
-   <section className="bg-[#EEEEEE] px-6 py-16 md:px-16 lg:py-20">
+   <section id="services" className="bg-[#EEEEEE] px-6 py-16 md:px-16 lg:py-20">
       <div className="mx-auto max-w-7xl">
         <h2 className="mb-12 text-center text-3xl font-bold text-BLACK-COLOR md:text-4xl">
           Nos services
