@@ -2,7 +2,7 @@ import { TextAlignJustify } from "lucide-react";
 import { logo } from "../assets/images";
 function Navbar() {
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 mx-auto flex max-w-8xl items-center justify-between rounded-full bg-white/90 px-6 py-1 shadow-xs backdrop-blur sm:left-1/2 sm:right-auto sm:w-[calc(100%-3rem)] w-[calc(100%-1rem)] sm:-translate-x-1/2 mt-4">
+    <nav className="fixed inset-x-0 top-0 z-50 mx-auto flex max-w-7xl items-center justify-between rounded-full bg-white/90 px-6 py-1 shadow-xs backdrop-blur sm:left-1/2 sm:right-auto sm:w-[calc(100%-3rem)] w-[calc(100%-1rem)] sm:-translate-x-1/2 mt-4">
       <div className="flex items-center">
         <div className="flex h-15 w-15 items-center justify-center rounded-full  text-xl font-bold text-white">
            <img src={logo} alt="Logo"  className="w-full"/>

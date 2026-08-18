@@ -15,5 +15,8 @@ import team_gianna from './gianna.JPG';
 import team_vanessa from './vanessa.JPG';
 import team_no_photo from './profil.webp';
 
+import grandPublic from './grand_publique.jpg';
+import economie from './economie.png';
+import corporate from './corporate.png';
 
-export { logo, about, phone, downloadAppPoster, downloadAppVideo, commanderAppPoster, commanderAppVideo, team_dg, team_denis, team_reine, team_ulysse, team_auberthe, team_gianna, team_vanessa, team_no_photo };
+export { logo, about, phone, downloadAppPoster, downloadAppVideo, commanderAppPoster, commanderAppVideo, team_dg, team_denis, team_reine, team_ulysse, team_auberthe, team_gianna, team_vanessa, team_no_photo, grandPublic, economie, corporate };

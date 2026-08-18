@@ -104,7 +104,7 @@ function TeamSection() {
 
   return (
     <section className="bg-[#EEEEEE] px-6 py-16 md:px-16 lg:py-20">
-      <div className="mx-auto max-w-8xl">
+      <div className="mx-auto max-w-7xl">
         <h2 className="mb-10 text-3xl font-bold">
           Notre Équipe
         </h2>
