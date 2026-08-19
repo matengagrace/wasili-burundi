@@ -1,7 +1,11 @@
 
 import { motion } from "framer-motion";
-import { AtSign, Share2 } from "lucide-react";
 import { logo,downloadGooglestore, downloadAppstore ,bgFooter} from "../assets/images";
+import { FaFacebookF } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa6";
 
 const QUICK_LINKS = [
   { label: "Accueil", href: "#hero" },
@@ -12,12 +16,6 @@ const QUICK_LINKS = [
 
 const CONTACT_NUMBERS = ["+257 79 138 138", "+257 79 137 137", "+257 79 135 135"];
 
-const SOCIAL_LINKS = [
-  // { label: "Facebook", href: "https://facebook.com", icon:"" },
-  // { label: "Instagram", href: "https://instagram.com", icon:"" },
-  { label: "Email", href: "mailto:info@wasiliburundi.com", icon: AtSign },
-  { label: "Partager", href: "#", icon: Share2 },
-];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -70,18 +68,51 @@ function FooterSection() {
             transport avec chauffeurs (VTC).
           </p>
           <div className="flex items-center gap-3">
-            {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
-              <a
-                key={label}
-                href={href}
-                aria-label={label}
+           <a
+                href="https://x.com/wasiliburundi/"
+                aria-label="Twitter"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 text-gray-600 transition hover:border-amber-400 hover:text-amber-600"
               >
-                <Icon className="h-4 w-4" strokeWidth={1.8} />
+                <FaXTwitter className="h-4 w-4" strokeWidth={1.8} />
               </a>
-            ))}
+           <a
+                href="https://www.instagram.com/wasiliburundi"
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 text-gray-600 transition hover:border-amber-400 hover:text-amber-600"
+              >
+                <FaInstagram className="h-4 w-4" strokeWidth={1.8} />
+              </a>
+           <a
+                href="https://www.facebook.com/wasiliburundi"
+                aria-label="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 text-gray-600 transition hover:border-amber-400 hover:text-amber-600"
+              >
+                <FaFacebookF className="h-4 w-4" strokeWidth={1.8} />
+              </a>
+           <a
+                href="https://www.linkedin.com/company/wasili-burundi/"
+                aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 text-gray-600 transition hover:border-amber-400 hover:text-amber-600"
+              >
+                <FaLinkedinIn className="h-4 w-4" strokeWidth={1.8} />
+              </a>
+           <a
+                href="https://www.tiktok.com/@wasili.burundi?_r=1&_t=ZS-96IIKqyDLip"
+                aria-label="TikTok"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 text-gray-600 transition hover:border-amber-400 hover:text-amber-600"
+              >
+                <FaTiktok className="h-4 w-4" strokeWidth={1.8} />
+              </a>
           </div>
         </motion.div>
 

@@ -12,14 +12,21 @@ import NewsletterSection from "./components/NewsletterSection";
 import { motion, useSpring, useScroll } from "motion/react";
 import ContactSection from "./components/ContactSection";
 import FooterSection from "./components/FooterSection";
+import { useState } from "react";
+import { AuthModal, BookingModal } from "./components/ActionModals";
 
 function App() {
+  const [activeModal, setActiveModal] = useState(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001,
   });
+
+  if (activeModal === "auth") {
+    return <AuthModal isOpen standalone onClose={() => setActiveModal(null)} />;
+  }
 
   return (
     <>
@@ -37,7 +44,7 @@ function App() {
         }}
       />
      <div className="w-full">
-      <Home />
+      <Home onBook={() => setActiveModal("booking")} onLogin={() => setActiveModal("auth")} />
         <AboutSection />
         <ServiceSection />
         <DownloadAppSection />
@@ -50,7 +57,8 @@ function App() {
         <ContactSection />
         <FooterSection />
       </div>
-    
+      <BookingModal isOpen={activeModal === "booking"} onClose={() => setActiveModal(null)} />
+      <AuthModal isOpen={activeModal === "auth"} onClose={() => setActiveModal(null)} />
     </>
   );
 }

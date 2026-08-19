@@ -8,7 +8,7 @@ const MENU_LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
-function Sidebar({ isOpen, onClose }) {
+function Sidebar({ isOpen, onClose, onLogin }) {
   const handleLinkClick = () => {
     onClose();
   };
@@ -66,7 +66,7 @@ function Sidebar({ isOpen, onClose }) {
             {/* Footer */}
             <div className="absolute bottom-6 left-4 right-4 flex flex-col gap-3">
               <span className="text-sm font-medium text-gray-600">EN</span>
-              <button className="w-full rounded-full bg-amber-400 px-6 py-2.5 text-sm font-bold text-gray-900 shadow-sm transition hover:bg-amber-500">
+              <button onClick={() => { onClose(); onLogin(); }} className="w-full rounded-full bg-amber-400 px-6 py-2.5 text-sm font-bold text-gray-900 shadow-sm transition hover:bg-amber-500">
                 LOGIN
               </button>
             </div>

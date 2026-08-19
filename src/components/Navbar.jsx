@@ -3,7 +3,7 @@ import { logo } from "../assets/images";
 import { useState } from "react";
 import Sidebar from "./Sidebar";
 
-function Navbar() {
+function Navbar({ onLogin }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
@@ -36,7 +36,7 @@ function Navbar() {
             <span className="hidden text-sm font-medium text-gray-700 sm:inline cursor-pointer">
               EN
             </span>
-            <button className="rounded-full cursor-pointer bg-amber-400 px-6 py-2.5 text-sm font-bold text-gray-900 shadow-sm transition hover:bg-amber-500">
+            <button onClick={onLogin} className="rounded-full cursor-pointer bg-amber-400 px-6 py-2.5 text-sm font-bold text-gray-900 shadow-sm transition hover:bg-amber-500">
               LOGIN
             </button>
           </div>

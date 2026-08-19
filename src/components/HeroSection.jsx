@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import Feature from "../hooks/Feature";
 import { phone } from "../assets/images";
-function HeroSection() {
+function HeroSection({ onBook }) {
   return (
 <div id="hero" className="mx-auto pb-10 grid max-w-7xl grid-cols-1 items-center gap-12 px-2 pt-32 md:grid-cols-[1fr_300px] lg:grid-cols-[1fr_500px] md:pt-5">
         
@@ -23,11 +23,14 @@ function HeroSection() {
 
           
           <div className="mt-8 flex flex-col gap-4 sm:flex-row w-full">
-            <button className="cursor-pointer flex items-center justify-center gap-2 rounded-xl bg-amber-400 px-6 py-4 font-bold text-gray-900 shadow-sm transition hover:bg-amber-500">
+            <button
+                type="button"
+                onClick={()=> window.open("https://play.google.com/store/apps/details?id=com.mediabox.wasilirider", "_blank")}
+                className="cursor-pointer flex items-center justify-center gap-2 rounded-xl bg-amber-400 px-6 py-4 font-bold text-gray-900 shadow-sm transition hover:bg-amber-500">
                <Download className="h-5 w-5" />
               Télécharger l'application
             </button>
-            <button className="cursor-pointer flex items-center justify-center gap-2 rounded-xl bg-BLACK-COLOR px-6 py-4 font-bold text-white shadow-sm transition hover:bg-BLACK-COLOR/80">
+            <button onClick={onBook} className="cursor-pointer flex items-center justify-center gap-2 rounded-xl bg-BLACK-COLOR px-6 py-4 font-bold text-white shadow-sm transition hover:bg-BLACK-COLOR/80">
               <CarTaxiFront className="h-5 w-5" />
               Réserver une voiture
             </button>
