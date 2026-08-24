@@ -8,8 +8,6 @@ import ForClientsSection from "./components/ForClientsSection";
 import PartnersSection from "./components/PartnersSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import NewsletterSection from "./components/NewsletterSection";
-"use client";
-import { motion, useSpring, useScroll } from "motion/react";
 import ContactSection from "./components/ContactSection";
 import FooterSection from "./components/FooterSection";
 import { useState } from "react";
@@ -17,48 +15,50 @@ import { AuthModal, BookingModal } from "./components/ActionModals";
 
 function App() {
   const [activeModal, setActiveModal] = useState(null);
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
+  const [language, setLanguage] = useState("fr");
 
   if (activeModal === "auth") {
-    return <AuthModal isOpen standalone onClose={() => setActiveModal(null)} />;
+    return (
+      <AuthModal
+        isOpen
+        standalone
+        onClose={() => setActiveModal(null)}
+        language={language}
+      />
+    );
   }
 
   return (
     <>
-      <motion.div
-        id="scroll-indicator"
-        style={{
-          scaleX,
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: 10,
-          originX: 0,
-          backgroundColor: "var(--hue-1)",
-        }}
-      />
-     <div className="w-full">
-      <Home onBook={() => setActiveModal("booking")} onLogin={() => setActiveModal("auth")} />
-        <AboutSection />
-        <ServiceSection />
-        <DownloadAppSection />
-        <TeamSection />
-        <CommanderSection />
-        <ForClientsSection />
-        <PartnersSection />
-        <TestimonialsSection />
-        <NewsletterSection />
-        <ContactSection />
-        <FooterSection />
+      <div className="w-full">
+        <Home
+          onBook={() => setActiveModal("booking")}
+          onLogin={() => setActiveModal("auth")}
+          language={language}
+          setLanguage={setLanguage}
+        />
+        <AboutSection language={language} />
+        <ServiceSection language={language} />
+        <DownloadAppSection language={language} />
+        <TeamSection language={language} />
+        <CommanderSection language={language} />
+        <ForClientsSection language={language} />
+        <PartnersSection language={language} />
+        <TestimonialsSection language={language} />
+        <NewsletterSection language={language} />
+        <ContactSection language={language} />
+        <FooterSection language={language} />
       </div>
-      <BookingModal isOpen={activeModal === "booking"} onClose={() => setActiveModal(null)} />
-      <AuthModal isOpen={activeModal === "auth"} onClose={() => setActiveModal(null)} />
+      <BookingModal
+        isOpen={activeModal === "booking"}
+        onClose={() => setActiveModal(null)}
+        language={language}
+      />
+      <AuthModal
+        isOpen={activeModal === "auth"}
+        onClose={() => setActiveModal(null)}
+        language={language}
+      />
     </>
   );
 }

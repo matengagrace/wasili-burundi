@@ -1,5 +1,6 @@
 
 import { motion } from "framer-motion";
+import { siteTranslations } from "../data/translations";
 import {clubLac,bhb,akeza,musumbaSteel,africaGame,bancobu,bcab,bcb,globalPeace,kira,finbank,unWomen,ingomag,kcb,brb,UN,eperticeFrance,socabu,crdb,brarudi,healthy,interbank,mirego,bgf,mediabox,jimbere,fruito,streetChild,wfp,zebra} from "../assets/partners/partners.js";
 
 const PARTNERS_ROW_1 = [
@@ -72,7 +73,9 @@ function MarqueeRow({ partners, direction = "left", duration = 28 }) {
   );
 }
 
-export default function PartnersSection() {
+export default function PartnersSection({ language = "fr" }) {
+  const title = siteTranslations[language]?.sectionTitles?.partners ?? siteTranslations.fr.sectionTitles.partners;
+
   return (
     <section className="bg-neutral-50 px-6 py-16 md:px-16 lg:py-20">
       <div className="mx-auto max-w-7xl">
@@ -83,7 +86,7 @@ export default function PartnersSection() {
           transition={{ duration: 0.5 }}
           className="mb-10 text-center text-3xl font-bold text-gray-900 md:text-4xl"
         >
-          Ils nous font confiance
+          {title}
         </motion.h2>
 
         <div className="flex flex-col divide-y divide-gray-200">

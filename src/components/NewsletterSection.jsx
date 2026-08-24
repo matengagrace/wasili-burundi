@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, CheckCircle2, Loader2 } from "lucide-react";
-
+import { siteTranslations } from "../data/translations";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export default function NewsletterSection({ onSubscribe }) {
+export default function NewsletterSection({ onSubscribe, language = "fr" }) {
+  const t = siteTranslations[language]?.newsletter ?? siteTranslations.fr.newsletter;
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [status, setStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
   async function handleSubmit(event) {
@@ -15,7 +16,7 @@ export default function NewsletterSection({ onSubscribe }) {
 
     if (!EMAIL_REGEX.test(email)) {
       setStatus("error");
-      setErrorMessage("Veuillez saisir une adresse e-mail valide.");
+      setErrorMessage(t.invalidEmail);
       return;
     }
 
@@ -28,9 +29,9 @@ export default function NewsletterSection({ onSubscribe }) {
       }
       setStatus("success");
       setEmail("");
-    } catch (err) {
+    } catch {
       setStatus("error");
-      setErrorMessage("Une erreur est survenue. Veuillez réessayer.");
+      setErrorMessage(t.error);
     }
   }
 
@@ -49,7 +50,7 @@ export default function NewsletterSection({ onSubscribe }) {
           transition={{ duration: 0.5 }}
           className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl"
         >
-          Restez informé
+          {t.title}
         </motion.h2>
 
         <motion.p
@@ -57,10 +58,9 @@ export default function NewsletterSection({ onSubscribe }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-8 text-gray-600 text-lg"
+          className="mb-8 text-lg text-gray-600"
         >
-          Abonnez-vous à notre newsletter mensuelle pour rester informé sur
-          tous nos services.
+          {t.text}
         </motion.p>
 
         <motion.form
@@ -76,8 +76,8 @@ export default function NewsletterSection({ onSubscribe }) {
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            placeholder="votre@email.com"
-            aria-label="Adresse e-mail"
+            placeholder={t.placeholder}
+            aria-label={t.ariaEmail}
             disabled={status === "loading"}
             className="w-full flex-1 rounded-lg border-2 border-amber-400 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-300 disabled:opacity-60"
           />
@@ -87,12 +87,8 @@ export default function NewsletterSection({ onSubscribe }) {
             disabled={status === "loading"}
             className="inline-flex items-center justify-center gap-2 rounded-lg bg-amber-500 px-6 py-3 text-sm font-semibold text-neutral-900 transition hover:bg-amber-400 disabled:cursor-not-allowed disabled:opacity-70"
           >
-            {status === "loading" ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
-            ) : (
-              <Mail className="h-4 w-4" />
-            )}
-            S'abonner
+            {status === "loading" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Mail className="h-4 w-4" />}
+            {t.button}
           </button>
         </motion.form>
 
@@ -118,16 +114,13 @@ export default function NewsletterSection({ onSubscribe }) {
                 className="flex items-center justify-center gap-1.5 text-sm font-medium text-green-600"
               >
                 <CheckCircle2 className="h-4 w-4" />
-                Merci ! Votre inscription a bien été prise en compte.
+                {t.success}
               </motion.p>
             )}
           </AnimatePresence>
         </div>
 
-        <p className="mt-2 text-lg text-gray-500">
-          Nous ne partagerons jamais vos informations avec des tiers.
-          Consultez notre politique de confidentialité pour plus de détails.
-        </p>
+        <p className="mt-2 text-lg text-gray-500">{t.privacy}</p>
       </div>
     </section>
   );

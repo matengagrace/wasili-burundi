@@ -1,29 +1,6 @@
 
 import { motion } from "framer-motion";
-
-const TESTIMONIALS = [
-  {
-    initials: "GG",
-    name: "Ginette Gatoni",
-    role: "Navetteuse quotidienne",
-    quote:
-      "Bonsoir, C'est Ginette Gatoni. Je tiens à remercier profondément Wasili. Lors de mon trajet de l'aéroport vers Nyabugete, j'ai malencontreusement laissé 2 ordi....",
-  },
-  {
-    initials: "NN",
-    name: "Nd Noëlla",
-    role: "Voyageur d'affaires",
-    quote:
-      "Bt? Nd Noëlla, umunywanyi wanyu adasanzwe nkba ngomvye kwipfuriza Ubunani bwiza abakozi ba Wasili bose n'indongozi zayo 🙏 Simbona aho.....",
-  },
-  {
-    initials: "TN",
-    name: "Thomas Ndayisaba",
-    role: "Étudiante universitaire",
-    quote:
-      "Slt. Nitwa Thomas et je fais souvent appel à Wasili pour mes trajets professionnels. La ponctualité est 1 critère essentiel pour m3, et avec Wasili, je n'ai jamais eu de....",
-  },
-];
+import { siteTranslations } from "../data/translations";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -34,7 +11,9 @@ const cardVariants = {
   }),
 };
 
-export default function TestimonialsSection() {
+export default function TestimonialsSection({ language = "fr" }) {
+  const testimonials = siteTranslations[language]?.testimonials ?? siteTranslations.fr.testimonials;
+  const title = siteTranslations[language]?.sectionTitles?.testimonials ?? siteTranslations.fr.sectionTitles.testimonials;
   return (
     <section className="bg-neutral-100 px-6 py-16 md:px-16 lg:py-20">
       <div className="mx-auto max-w-7xl">
@@ -45,11 +24,11 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.5 }}
           className="mb-12 text-center text-3xl font-bold text-gray-900 md:text-4xl"
         >
-          Temoignages faites par nos clients
+          {title}
         </motion.h2>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {TESTIMONIALS.map((testimonial, index) => (
+          {testimonials.map((testimonial, index) => (
             <motion.article
               key={testimonial.name}
               custom={index}
@@ -62,7 +41,7 @@ export default function TestimonialsSection() {
             >
               <div>
                 <p className="text-sm leading-relaxed text-gray-700">
-                  {testimonial.quote}````
+                  {testimonial.quote}
                 </p>
               </div>
 

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { team_dg, team_denis,team_reine,team_ulysse,team_auberthe, team_gianna, team_vanessa, team_no_photo } from "../assets/images";
+import { siteTranslations } from "../data/translations";
 
 const TEAM = [
   {
@@ -58,7 +59,8 @@ const TEAM = [
     photo: team_no_photo,
   },
 ];
-function TeamSection() {
+function TeamSection({ language = "fr" }) {
+  const t = siteTranslations[language]?.team ?? siteTranslations.fr.team;
   const scrollRef = useRef(null);
 
   const [progress, setProgress] = useState(0);
@@ -105,9 +107,7 @@ function TeamSection() {
   return (
     <section className="bg-[#EEEEEE] px-6 py-16 md:px-16 lg:py-20">
       <div className="mx-auto max-w-7xl">
-        <h2 className="mb-10 text-3xl font-bold">
-          Notre Équipe
-        </h2>
+        <h2 className="mb-10 text-3xl font-bold">{t.title}</h2>
 
         <div
           ref={scrollRef}
@@ -147,12 +147,12 @@ function TeamSection() {
               </div>
 
               <div className="p-4">
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-xl font-bold">
                   {member.name}
                 </h3>
 
                 <p className="mt-1 text-md text-gray-500">
-                  {member.role}
+                  {t.roles[index] ?? member.role}
                 </p>
               </div>
             </article>
