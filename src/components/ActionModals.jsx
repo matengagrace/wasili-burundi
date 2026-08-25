@@ -144,7 +144,7 @@ export function BookingModal({ isOpen, onClose, language = "fr" }) {
                 </div>
               ) : (
                 <form
-                  onSubmit={handleSubmit}
+                  // onSubmit={handleSubmit}
                   className="grid gap-4 sm:grid-cols-2"
                 >
                   <Field label={t.name} icon={User}>
@@ -329,7 +329,9 @@ export function AuthModal({ isOpen, onClose, standalone = false, language = "fr"
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+              <form 
+              // onSubmit={handleSubmit}
+               className="mt-6 space-y-4">
                 {mode === "signup" && (
                   <Field label={t.name} icon={User}>
                     <input
@@ -389,7 +391,7 @@ export function AuthModal({ isOpen, onClose, standalone = false, language = "fr"
                 </div>
                 <button
                   type="button"
-                  onClick={() => setIsSubmitted(true)}
+                  // onClick={() => setIsSubmitted(true)}
                   className="flex w-full items-center justify-center gap-3 rounded-2xl border border-gray-200 py-3.5 text-sm font-bold text-gray-700 transition hover:bg-gray-50"
                 >
                   <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-sm font-black text-[#4285F4] shadow-sm">
