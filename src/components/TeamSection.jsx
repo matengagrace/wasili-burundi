@@ -106,7 +106,7 @@ function TeamSection({ language = "fr" }) {
 
   return (
     <section className="bg-[#EEEEEE] px-6 py-16 md:px-16 lg:py-20">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto w-[calc(100%-1rem)] max-w-7xl">
         <h2 className="mb-10 text-3xl font-bold">{t.title}</h2>
 
         <div

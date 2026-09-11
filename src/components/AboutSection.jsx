@@ -6,7 +6,7 @@ function AboutSection({ language = "fr" }) {
 
   return (
     <section id="about" className="bg-PRIMARY-COLOR px-6 py-16 lg:py-24">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center justify-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto grid w-[calc(100%-1rem)] max-w-7xl grid-cols-1 items-center justify-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div className="h-full w-full overflow-hidden rounded-2xl shadow-sm">
           <img
             src={about}

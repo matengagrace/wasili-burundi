@@ -16,7 +16,7 @@ export default function TestimonialsSection({ language = "fr" }) {
   const title = siteTranslations[language]?.sectionTitles?.testimonials ?? siteTranslations.fr.sectionTitles.testimonials;
   return (
     <section className="bg-neutral-100 px-6 py-16 md:px-16 lg:py-20">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto w-[calc(100%-1rem)] max-w-7xl">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

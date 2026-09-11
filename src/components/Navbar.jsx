@@ -22,7 +22,7 @@ function Navbar({ onLogin, language, setLanguage }) {
 
   return (
     <>
-      <nav className="fixed inset-x-0 top-0 z-50 mx-auto mt-4 flex w-[calc(100%-1rem)] max-w-7xl items-center justify-between rounded-full bg-white/90 px-6 py-1 shadow-xs backdrop-blur sm:left-1/2 sm:right-auto sm:w-[calc(100%-3rem)] sm:-translate-x-1/2">
+      <nav className="fixed inset-x-0 top-0 z-99 mx-auto mt-4 flex w-[calc(100%-1rem)] max-w-7xl items-center justify-between rounded-full bg-white/90 px-6 py-1 shadow-xs backdrop-blur sm:left-1/2 sm:right-auto sm:w-[calc(100%-3rem)] sm:-translate-x-1/2">
         <div className="flex items-center">
           <div className="flex h-15 w-15 items-center justify-center rounded-full text-xl font-bold text-white">
             <img src={logo} alt={ui.logoAlt} className="w-full" />

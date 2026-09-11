@@ -15,7 +15,7 @@ function HeroSection({ onBook, language = "fr" }) {
   const ui = siteTranslations[language]?.ui ?? siteTranslations.fr.ui;
 
   return (
-    <div id="hero" className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-2 pb-10 pt-32 md:grid-cols-[1fr_300px] md:pt-5 lg:grid-cols-[1fr_500px]">
+    <div id="hero" className="mx-auto grid w-[calc(100%-1rem)] max-w-7xl grid-cols-1 items-center gap-12 px-2 pb-10 pt-32 md:grid-cols-[1fr_300px] md:pt-5 lg:grid-cols-[1fr_500px]">
       <div className="w-full">
         <h1 className="w-full text-5xl font-extrabold leading-[70px] tracking-tight text-BLACK-COLOR lg:text-[72px]">
           {t.title}

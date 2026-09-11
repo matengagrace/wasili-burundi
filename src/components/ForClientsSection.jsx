@@ -18,7 +18,7 @@ function ForClientsSection({ language = "fr" }) {
 
   return (
     <section className="bg-GRAY-WHITE-COLOR px-6 py-16 md:px-16 lg:py-20">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto w-[calc(100%-1rem)] max-w-7xl">
         <h2 className="mb-10 text-center text-3xl font-bold text-BLACK-COLOR md:text-4xl">
           {siteTranslations[language]?.sectionTitles?.company ?? siteTranslations.fr.sectionTitles.company}
         </h2>

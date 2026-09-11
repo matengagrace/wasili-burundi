@@ -10,7 +10,7 @@ function CommanderSection({ videoPosterSrc = commanderAppPoster, videoSrc = comm
 
   return (
     <section className="bg-BLACK-COLOR px-6 py-16 md:px-16 lg:py-20">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-2">
+      <div className="mx-auto grid w-[calc(100%-1rem)] max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-2">
         <div>
           <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">{t.heading}</h2>
           <p className="mb-8 max-w-lg text-lg text-PRIMARY-COLOR">{t.text}</p>
