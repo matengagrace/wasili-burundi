@@ -59,11 +59,21 @@ const TEAM = [
     photo: team_no_photo,
   },
 ];
+
 function TeamSection({ language = "fr" }) {
   const t = siteTranslations[language]?.team ?? siteTranslations.fr.team;
   const scrollRef = useRef(null);
 
   const [progress, setProgress] = useState(0);
+
+  // État du glissement à la souris (drag to scroll)
+  const dragState = useRef({
+    isDown: false,
+    startX: 0,
+    startScrollLeft: 0,
+    moved: false,
+  });
+  const [isDragging, setIsDragging] = useState(false);
 
   const updateProgress = () => {
     const el = scrollRef.current;
@@ -104,27 +114,96 @@ function TeamSection({ language = "fr" }) {
     });
   };
 
+  // --- Glisser avec la souris (drag to scroll) ---
+  const handlePointerDown = (e) => {
+    // Ne réagit qu'à la souris ; le tactile est géré nativement par overflow-x-auto
+    if (e.pointerType === "touch") return;
+
+    const el = scrollRef.current;
+    if (!el) return;
+
+    dragState.current.isDown = true;
+    dragState.current.moved = false;
+    dragState.current.startX = e.pageX;
+    dragState.current.startScrollLeft = el.scrollLeft;
+
+    setIsDragging(true);
+    el.setPointerCapture?.(e.pointerId);
+  };
+
+  const handlePointerMove = (e) => {
+    const el = scrollRef.current;
+    if (!el || !dragState.current.isDown) return;
+
+    e.preventDefault();
+
+    const deltaX = e.pageX - dragState.current.startX;
+
+    if (Math.abs(deltaX) > 3) {
+      dragState.current.moved = true;
+    }
+
+    el.scrollLeft = dragState.current.startScrollLeft - deltaX;
+  };
+
+  const endDrag = (e) => {
+    const el = scrollRef.current;
+    if (dragState.current.isDown && el && e?.pointerId != null) {
+      el.releasePointerCapture?.(e.pointerId);
+    }
+    dragState.current.isDown = false;
+    setIsDragging(false);
+  };
+
+  // Empêche un clic accidentel (ex: lien) juste après un glissement
+  const handleCardClickCapture = (e) => {
+    if (dragState.current.moved) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  };
+
   return (
     <section className="bg-[#EEEEEE] px-6 py-16 md:px-16 lg:py-20">
+      {/* Masque la scrollbar sans dépendre d'un plugin Tailwind */}
+      <style>{`
+        .team-scroll {
+          -ms-overflow-style: none;   /* IE / Edge legacy */
+          scrollbar-width: none;      /* Firefox */
+        }
+        .team-scroll::-webkit-scrollbar {
+          display: none;              /* Chrome / Safari / Edge Chromium */
+        }
+      `}</style>
+
       <div className="mx-auto w-[calc(100%-1rem)] max-w-7xl">
         <h2 className="mb-10 text-3xl font-bold">{t.title}</h2>
 
         <div
           ref={scrollRef}
           onScroll={updateProgress}
-          className="
-          flex
-          gap-6
-          overflow-x-hidden
-          scroll-smooth
-          snap-x
-          snap-mandatory
-          scrollbar-hide
-        "
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={endDrag}
+          onPointerLeave={endDrag}
+          onPointerCancel={endDrag}
+          className={`
+            team-scroll
+            flex
+            gap-6
+            overflow-x-auto
+            scroll-smooth
+            snap-x
+            snap-mandatory
+            select-none
+            ${isDragging ? "cursor-grabbing" : "cursor-grab"}
+          `}
+          style={{ touchAction: "pan-x" }}
         >
           {TEAM.map((member, index) => (
             <article
               key={index}
+              onClickCapture={handleCardClickCapture}
               className="
                 snap-start
                 flex-shrink-0
@@ -142,7 +221,8 @@ function TeamSection({ language = "fr" }) {
                 <img
                   src={member.photo}
                   alt={member.name}
-                  className="h-full w-full object-cover"
+                  draggable={false}
+                  className="h-full w-full object-cover pointer-events-none"
                 />
               </div>
 
